@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="el">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Καρβασαράς Καρδίτσας | karvasaras-karditsas.gr</title>
-    <meta name="description" content="Καρβασαράς Καρδίτσας - karvasaras-karditsas.gr">
-    <meta property="og:title" content="Καρβασαράς Καρδίτσας - karvasaras-karditsas.gr" />
-    <meta property="og:url" content="https://karvasaras-karditsas.gr/" />
-    <meta property="og:site_name" content="Καρβασαράς Καρδίτσας | karvasaras-karditsas.gr" />
-    <meta charset="utf-8">
+    <title>Καρβασαράς Καρδίτσας | Live Camera</title>
+    <meta name="description" content="Δείτε ζωντανά την κάμερα του Καρβασαρά Καρδίτσας.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://karvasaras-karditsas.gr/">
+    <meta property="og:title" content="Καρβασαράς Καρδίτσας - Live Camera">
+    <meta property="og:url" content="https://karvasaras-karditsas.gr/cam">
+    <meta property="og:site_name" content="Καρβασαράς Καρδίτσας">
+    <meta property="og:image" content="https://karvasaras-karditsas.gr/cam/karvasaras.jpg">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://karvasaras-karditsas.gr/cam">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
+    <style> 
         body {
             display: flex;
             justify-content: center;
@@ -51,50 +53,44 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 0px;
-	    margin-top: auto;
-	}
+            margin-top: auto;
+        }
         .top-content .logo {
             width: 200px;
             height: 100px;
             animation: none;
         }
         .top-content .hashtag {
-            font-size: 22px;
+            font-size: 20px;
             color: white;
-	    text-decoration: none;
+            text-decoration: none;
         }
-
-	.top-content .hashtag a {
-	    color: white;
-	    text-decoration: none;
-        }
-
-	.top-content .hashtag a:hover {
+        .top-content .hashtag a {
             color: white;
-	    font-weight: bold;
-	    text-decoration: none;
+            text-decoration: none;
         }
-
-        .slideshow {
-            position: relative;
-            width: 100%;
-            height: 60vh;
-            overflow: hidden;
+        .top-content .hashtag a:hover {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+        }
+	.container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: fit-content;
+            max-width: 100%;
+            margin: 0 auto;
             border: 4px solid #1b2e1b;
             border-radius: 10px;
-            margin: 0 auto;
+            overflow: hidden;
         }
-	.slideshow img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
+        .container img {
+            display: block;
+            max-width: 100%;
+            height: auto;
         }
-        .slideshow img.active {
+        .container img.active {
             opacity: 1;
         }
         @keyframes fade {
@@ -102,79 +98,40 @@
             10% { opacity: 1; }
             30% { opacity: 1; }
             40% { opacity: 0; }
-           100% { opacity: 0; }
+            100% { opacity: 0; }
         }
-        .slide-title {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            font-size: 14px;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 5px 10px;
-            border-radius: 5px;
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
         }
-        .text {
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
+	.text {
 	    font-size: 14px;
             margin-top: 20px;
             position: relative;
-            left: 5%;
-            width: 95%;
-            text-align: left;
+            text-align: center;
         }
-
 	.text a, a:hover, a:visited {
-	   color: white; 
+	   color: white;
 	   text-decoration: underline;
 	}
-
-        .social-buttons {
-            margin-top: 20px;
-	    margin-bottom: 15px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-	.social-buttons a {
-            text-decoration: none;
-            color: white;
-            padding: 10px;
-            border-radius: 50%;
-            transition: background 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 35px;
-            height: 35px;
-            font-size: 22px;
-        }
-        .social-buttons a:hover {
-            background: #666;
-        }
-        .social-buttons a[href*="instagram.com"] {
-            background: #125688;
-        }
-        .social-buttons a[href*="instagram.com"]:hover {
-            background: #0d4670;
-        }
-        .social-buttons a[href*="facebook.com"] {
-            background: #3B5998;
-        }
-        .social-buttons a[href*="facebook.com"]:hover {
-            background: #2d4373;
-        }
-        .social-buttons a[href*="maps.app.goo.gl"] {
-            background: #dd4b39;
-        }
-        .social-buttons a[href*="maps.app.goo.gl"]:hover {
-            background: #c13529;
-        }
-	.social-buttons a[href*="/cam"] {
-            background: #d30000;
-            animation: pulse 1.5s infinite;
-        }
-	.social-buttons a[href*="/cam"]:hover {
-            background: #ff6666;
-	    animation: pulse 1.5s infinite;
+        .info-box {
+            background-color: #1a2f1c;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 10px;
         }
         @media screen and (max-width: 768px) {
             .slideshow {
@@ -184,15 +141,15 @@
                 width: 210px;
                 height: 210px;
             }
-	    .top-content {
+            .top-content {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 margin-bottom: 0px;
-	        margin-top: 70px;
+                /* margin-top: 0px; */
             }
             .top-content .logo {
-		width: 150px;
+                width: 150px;
                 height: 75px;
                 animation: none;
             }
@@ -213,85 +170,52 @@
         }
     </style>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            setTimeout(() => {
-                document.querySelector(".logo").classList.add("hidden");
-                document.querySelector(".content").classList.remove("hidden");
-                changeSlide();
-            }, 2000);
-        });
-        function changeSlide() {
-            const slides = document.querySelectorAll(".slideshow img");
-            const title = document.querySelector(".slide-title");
-            let current = 0;
-            function showSlide(index) {
-                slides.forEach((slide, i) => {
-                    slide.classList.remove('active');
-                    if (i === index) {
-                        slide.classList.add('active');
-                    }
-                });
-                title.textContent = slides[index].alt;
-            }
-            setInterval(() => {
-                current = (current + 1) % slides.length;
-                showSlide(current);
-            }, 6500);
+    document.addEventListener("DOMContentLoaded", function() {
+        const image = document.querySelector('.container img');
+        const modalImg = document.getElementById('modal-img');
+        const modal = document.getElementById('modal');
 
-            showSlide(current);
+        function updateImage() {
+            const timestamp = Date.now();
+            image.src = "/cam/karvasaras.jpg?" + timestamp;
+            if (modal.style.display === "flex") {
+                modalImg.src = "/cam/karvasaras_clean.jpg?" + timestamp;
+            }
         }
+
+        setInterval(updateImage, 15000);
+
+        setTimeout(() => {
+            document.querySelector(".logo").classList.add("hidden");
+            document.querySelector(".content").classList.remove("hidden");
+        }, 1000);
+
+        image.addEventListener("click", function() {
+            modal.style.display = 'flex';
+            modalImg.src = "/cam/karvasaras_clean.jpg?" + Date.now();
+        });
+
+        modal.addEventListener("click", function() {
+            modal.style.display = 'none';
+        });
+    });
     </script>
 </head>
 <body>
     <div class="logo"></div>
-
     <div class="content hidden">
         <div class="top-content">
             <div class="logo"></div>
-	    <!--<div class="hashtag"><a href="https://youtu.be/dEQeIlp0_ag" target="_blank">#save_agrafa</a></div>-->
-	    <div class="hashtag"><a href="https://www.facebook.com/Save_Agrafa-100064675062953/" target="_blank">#save_agrafa</a></div>
         </div>
-
-        <div class="slideshow">
-            <img src="https://lh5.googleusercontent.com/p/AF1QipOP7m5cZApfSfj8n32H4wq7sMk6kVhItSv3R2z5=s1024" alt="01/25">
-	    <img src="https://lh5.googleusercontent.com/p/AF1QipN4kvCiktZ0EpAXEOC1d4Hvbb6W-j0xYf8-yDks=s1024" alt="02/25">
-            <img src="https://lh5.googleusercontent.com/p/AF1QipO_aTFSW99zrWbKjGlTPGpOBh5oIPC0zsuN2m74=s1024" alt="03/25">
-            <img src="https://lh5.googleusercontent.com/p/AF1QipOV-ZswtJOcnffDMBsBA_GZ1hVitfFqu9B8kr0=s1024" alt="04/25">
-	    <img src="https://lh5.googleusercontent.com/p/AF1QipNUTEQlIqyZglVvp5TpcUt9fXC6UR21p20HGCXF=s1024" alt="05/25">
-	    <img src="https://lh5.googleusercontent.com/p/AF1QipO4_2hIkXt_Q7VgRaB-7skkERCRZ8MVTtENSiPZ=s1024" alt="06/25">
-	    <img src="https://lh5.googleusercontent.com/p/AF1QipNsFXX3coaM-oMKW4nNjuP-8XpeD16IZBVa1t2B=s1024" alt="07/25">
-	    <img src="https://lh5.googleusercontent.com/p/AF1QipNht662DS_EniCPk1W8gNkvN6MN0Dh3pCHDKq61=s1024" alt="08/25">
-	    <img src="https://lh5.googleusercontent.com/p/AF1QipNSxV08idM9z8uo3VqyUWo7RzMHDDmvnz_QFvxL=s1024" alt="09/25">
-	    <img src="https://lh5.googleusercontent.com/p/AF1QipN8DDQntsbdHsiiiZdY6XfiPNuyTLMWOLGq8ck=s1024" alt="10/25">
-	    <img src="https://lh5.googleusercontent.com/p/AF1QipNxqyZpbRGrKoyH7Y1CjaH5h7dHKvNrYqvzqGAH=s1024" alt="11/25">
-	    <img src="https://lh5.googleusercontent.com/p/AF1QipOE3MpvDX-dObSX1r2jxjeNlLxN-y7hgbwbCUBI=s1024" alt="12/25">
-	    <img src="https://lh5.googleusercontent.com/p/AF1QipMNxRZaahzQHASY9P5TCKB2HTfFpKPHSIjyalBD=s1024" alt="13/25">
-	    <img src="https://lh5.googleusercontent.com/p/AF1QipO_1LAPLb0yt56nUVWDMIihK9wT5b6fyXjMc8D2=s1024" alt="14/25">
-	    <img src="https://lh5.googleusercontent.com/p/AF1QipNvQpBZaNx_N2ajTgZwy1Pea3g81txc8YImRp1q=s1024" alt="15/25">
-	    <img src="https://lh5.googleusercontent.com/p/AF1QipNHmQn-mSTnkmn_6fkQBnDMOraHmk67ByfxD3wP=s1024" alt="16/25">
-	    <img src="https://lh5.googleusercontent.com/p/AF1QipMfny9uNQbgCz6wSoANy1tCan9pPb_qVubfHl7P=s1024" alt="17/25">
-	    <img src="https://lh5.googleusercontent.com/p/AF1QipPJI0YMnx2UxKNE0H8CnTPPKbtaFnaXqB7ZVwdO=s1024" alt="18/25">
-	    <img src="https://lh5.googleusercontent.com/p/AF1QipNyAqF7dvsUmpAyZ0BLGTilU753zuZSWSPbEb7u=s1024" alt="19/25">
-	    <img src="https://lh5.googleusercontent.com/p/AF1QipNEjzdBUEY6tID9BGDKPZglCwksCVzd2jc8u7pZ=s1024" alt="20/25">
-	    <img src="https://lh5.googleusercontent.com/p/AF1QipPbH9YPJ5knePzaMI4RNajGfnwi_brcCM0Nll0P=s1024" alt="21/25">
-            <img src="https://lh5.googleusercontent.com/p/AF1QipONkABEGzls89MrxRNLpD5QQtXfHR385drNJef-=s1024" alt="22/25">
-            <img src="https://lh5.googleusercontent.com/p/AF1QipP9rUhDV8M3kJdlwdgAtGP43Vmn6l0DG59YI-9E=s1024" alt="23/25">
-	    <img src="https://lh5.googleusercontent.com/p/AF1QipMwBiOw6RRCCS9YJfkqcpCshnXdsvafqeRyMcC_=s1024" alt="24/25">
-	    <img src="https://lh5.googleusercontent.com/p/AF1QipPkKAIx0s-JxUtBPX-0gqOUEborUVPgbKXTOdtB=s1024" alt="25/25">
-	    <div class="slide-title">00/00</div>
+        <div class="container">
+            <img class="active" src="/cam/karvasaras.jpg" title="Karvasaras Village" alt="Karvasaras Cam" onclick="openModal()">
         </div>
-
-        <div class="text">
-		<p>Ο <b>Καρβασαράς</b> είναι ορεινό χωριό του νομού Καρδίτσας και είναι χτισμένος σε υψόμετρο 1.120 μέτρων στις πλαγιές των Αγράφων αποτελώντας έναν από τους πιο ορεινούς οικισμούς της Θεσσαλίας. Διοικητικά, ανήκει στον <a href="https://plastiras-ota.gr/o-dimos/dimotiki-enotita-nevropolis-agrafon/karvasaras/" target="_blank" title="Δήμος Λίμνης Πλαστήρα">Δήμο Λίμνης Πλαστήρα</a> και σύμφωνα με την τελευταία απογραφή του 2021, ο μόνιμος* πληθυσμός του ανέρχεται σε 69 κατοίκους.</p>
-		<p>Η περιοχή γύρω από τον Καρβασαρά είναι ιδανική για πεζοπορία, ποδηλασία βουνού και άλλες υπαίθριες δραστηριότητες, ενώ η πανέμορφη θέα και οι φυσικές ομορφιές της περιοχής δεν αφήνουν αδιάφορους τους λάτρεις της φύσης και του βουνού. Επιπλέον, ο Καρβασαράς διαθέτει μια <a href="https://maps.app.goo.gl/DdPS7npaJeT59NHr8" target="_blank" title="Καφενείο-Ψησταριά 'Ο Καϊμακιάς'">παραδοσιακή ταβέρνα-καφέ</a>, όπου οι επισκέπτες μπορούν να απολαύσουν τοπικές γεύσεις και να χαλαρώσουν στον φιλόξενο χώρο της.</p>
+        <div id="modal" class="modal" onclick="closeModal()">
+            <img id="modal-img" class="modal-content">
         </div>
-
-        <div class="social-buttons">
-	    <a href="https://www.instagram.com/karvasaras.karditsas/" target="_blank" title="Καρβασαράς Καρδίτσας on Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.facebook.com/groups/108680715834742/"target="_blank" title="Καρβασαράς Καρδίτσας on Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://maps.app.goo.gl/PYQkzSt8XVyyq9d2A" target="_blank" title="Καρβασαράς Καρδίτσας on Google Maps"><i class="fas fa-map-marker-alt"></i></a>
-	    <a href="/cam" target="_blank" title="Καρβασαράς Καρδίτσας Live Camera"><i class="fas fa-video"></i></a>
-        </div>
+	<div class="text">
+	    <p>Η εικόνα ανανεώνεται αυτόματα.</p>
+	    <p>Κάντε click πάνω στην εικόνα για μεγέθυνση.</p>
     </div>
 </body>
 </html>
